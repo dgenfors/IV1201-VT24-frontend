@@ -18,7 +18,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <h1>{apiMessage}</h1>
+      <h1>Server says: {apiMessage}</h1>
     </div>
   );
 }
