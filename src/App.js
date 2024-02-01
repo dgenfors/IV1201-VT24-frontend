@@ -1,10 +1,12 @@
-import {useEffect} from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [apiMessage, setApiMessage] = useState('');
   const makeAPICall = async () => {
     try {
       const response = await fetch('http://localhost:3001', {mode: 'cors'});
-      const data = await response.json();
+      const data = await response.text();
+      setApiMessage(data);
       console.log({data});
     } catch (e) {
       console.log(e);
@@ -16,7 +18,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <h1>Called server on other domain</h1>
+      <h1>{apiMessage}</h1>
     </div>
   );
 }
