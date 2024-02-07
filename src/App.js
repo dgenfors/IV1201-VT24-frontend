@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function App() {
+function MainPage() {
   const [apiMessage, setApiMessage] = useState([]);
   const makeAPICall = async () => {
     try {
@@ -25,4 +25,4 @@ function App() {
   );
 }
 
-export default App;
+export default MainPage;
