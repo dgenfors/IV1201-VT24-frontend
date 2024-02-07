@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import MainPage from './view/App';
+import LoginPage from './view/Login'
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ViewModel from './viewModel/ViewModel';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const viewModel = new ViewModel();
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+    <Routes>
+    <Route path="/" element={<MainPage viewModel={viewModel}/>} />
+    <Route path="/login" element={<LoginPage viewModel={viewModel}/>} />
+    </Routes>
+    </Router>
   </React.StrictMode>
 );
 
