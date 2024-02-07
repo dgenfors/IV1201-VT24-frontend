@@ -20,6 +20,7 @@ class ViewModel{
           }
         });
         const data = await response.json();
+        console.log(data);
         //'setApiMessage(data);
       } catch (e) {
         console.log(e);
