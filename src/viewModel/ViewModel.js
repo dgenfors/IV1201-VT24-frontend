@@ -16,7 +16,7 @@ class ViewModel{
         const response = await fetch('http://localhost:3001/allApplications', {
           mode: 'cors',
           headers: {
-            'Authorization':'Basic' + btoa(username + ':' + password)
+            'Authorization':'Basic ' + btoa(username + ':' + password)
           }
         });
         const data = await response.json();
