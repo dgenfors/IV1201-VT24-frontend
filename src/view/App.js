@@ -21,7 +21,7 @@ function MainPage(props) {
       Dubi dubi daba daba
       Mágico mi dubi dubi
       Bum 
-      <button onClick = {button}>Login</button>
+      <button onClick = {button}>Login!</button>
     </div>
   );
 }

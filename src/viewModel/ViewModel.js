@@ -13,7 +13,12 @@ class ViewModel{
     //Return results (True or False), Index file navigate(Homepage) if true
     //Later also set user cookie to remember who and if logged in
       try {
-        const response = await fetch('http://localhost:3001/allApplications', {mode: 'cors'});
+        const response = await fetch('http://localhost:3001/allApplications', {
+          mode: 'cors',
+          headers: {
+            'Authorization': 'Basic ' + btoa(username + ':' + password)
+          }
+        });
         const data = await response.json();
         //'setApiMessage(data);
       } catch (e) {
