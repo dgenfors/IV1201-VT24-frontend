@@ -1,11 +1,18 @@
 import React from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function MainPage(props) {
   const navigate = useNavigate();
-  function button(){
+  const [isLoggedIn, setLogInStatus] = useState(props.viewModel.isLoggedIn)
+  console.log(isLoggedIn)
+  function login(){
     console.log("knapp login")
     navigate('/login');
+  }
+  function logout(){
+    setLogInStatus(false)
+    props.viewModel.isLoggedIn = false;
   }
  
   return (
@@ -21,7 +28,8 @@ function MainPage(props) {
       Dubi dubi daba daba
       Mágico mi dubi dubi
       Bum 
-      <button onClick = {button}>Login!</button>
+      <div>{isLoggedIn ? (<button onClick={logout}>Logout!</button>) : (
+      <button onClick={login} >Login!</button>)}</div>
     </div>
   );
 }

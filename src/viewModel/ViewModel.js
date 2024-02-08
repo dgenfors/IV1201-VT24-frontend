@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 class ViewModel{
   constructor(){
-
+    this.isLoggedIn = false;
   }
 
   createAccount(){
@@ -21,10 +21,12 @@ class ViewModel{
         });
         const data = await response.json();
         console.log(data);
+        return data[0].exists
         //'setApiMessage(data);
       } catch (e) {
         console.log(e);
       }
+      
     };
     
   listOfJobs(){
