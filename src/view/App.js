@@ -28,6 +28,9 @@ function MainPage(props) {
     setLogInStatus(false);
     props.viewModel.isLoggedIn = false;
   }
+  function listappli() {
+    props.viewModel.listOfApplications()
+  }
 
   return (
     <div className="App">
@@ -49,6 +52,7 @@ function MainPage(props) {
           <button onClick={login}>Login!</button>
         )}
       </div>
+      <div><button onClick={listappli}>listapp!</button></div>
     </div>
   );
 }

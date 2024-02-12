@@ -37,14 +37,16 @@ class ViewModel {
   async login(username, password) {
     try {
       const response = await fetch('http://localhost:3001/login', {
+        method: 'POST',
         mode: 'cors',
         headers: {
-          'Authorization': 'Basic ' + btoa(username + ':' + password)
-        }
+          'Content-Type': 'application/json'
+        },
+        credentials: "include",
+        body: JSON.stringify({ username, password })
       });
       const data = await response.json();
-      console.log(data);
-      return data[0].exists;
+      return data;
     } catch (e) {
       console.log(e);
     }
@@ -80,8 +82,18 @@ class ViewModel {
   * Retrieves a list of applications.
   * @returns {Promise<Array<ListAppDTO>>} A Promise that resolves to an array of ListAppDTO objects representing application data.
   */
-  listOfApplications() {
-    // Implementation details omitted
+  async listOfApplications() {
+    try {
+      const response = await fetch('http://localhost:3001/allApplications', {
+      method: 'GET',
+      mode: 'cors',
+      credentials: "include",
+      });
+      const data = await response.json();
+      console.log(data)
+  } catch (error) {
+      console.error('Error fetching list of applications:', error);
+  }
   }
 
   /**
