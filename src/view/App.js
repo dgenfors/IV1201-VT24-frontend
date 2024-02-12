@@ -2,19 +2,33 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * Represents the main page component.
+ * @param {object} props - The props object containing viewModel.
+ * @param {object} props.viewModel - The view model object with isLoggedIn property.
+ * @returns {JSX.Element} A JSX element representing the main page.
+ */
 function MainPage(props) {
   const navigate = useNavigate();
-  const [isLoggedIn, setLogInStatus] = useState(props.viewModel.isLoggedIn)
-  console.log(isLoggedIn)
-  function login(){
-    console.log("knapp login")
+  const [isLoggedIn, setLogInStatus] = useState(props.viewModel.isLoggedIn);
+
+  /**
+   * Navigates to the login page.
+   * @returns {void}
+   */
+  function login() {
     navigate('/login');
   }
-  function logout(){
-    setLogInStatus(false)
+
+  /**
+   * Logs out the user.
+   * @returns {void}
+   */
+  function logout() {
+    setLogInStatus(false);
     props.viewModel.isLoggedIn = false;
   }
- 
+
   return (
     <div className="App">
       <h1>
@@ -28,8 +42,13 @@ function MainPage(props) {
       Dubi dubi daba daba
       Mágico mi dubi dubi
       Bum 
-      <div>{isLoggedIn ? (<button onClick={logout}>Logout!</button>) : (
-      <button onClick={login} >Login!</button>)}</div>
+      <div>
+        {isLoggedIn ? (
+          <button onClick={logout}>Logout!</button>
+        ) : (
+          <button onClick={login}>Login!</button>
+        )}
+      </div>
     </div>
   );
 }

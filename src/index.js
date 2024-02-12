@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import MainPage from './view/App';
 import LoginPage from './view/Login'
+import Register from './view/Register';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ViewModel from './viewModel/ViewModel';
@@ -15,6 +16,7 @@ root.render(
     <Routes>
     <Route path="/" element={<MainPage viewModel={viewModel}/>} />
     <Route path="/login" element={<LoginPage viewModel={viewModel}/>} />
+    <Route path="/register" element={<Register viewModel={viewModel}/>} />
     </Routes>
     </Router>
   </React.StrictMode>

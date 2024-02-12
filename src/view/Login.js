@@ -1,9 +1,16 @@
 import React from 'react';
 import LoginBox from "../components/LoginBox/LoginBox";
 
-function LoginPage(props){
+/**
+ * A view that displays the login box
+ * @param {*} model 
+ * @returns a page to log in
+ */
+function LoginPage(model){
 
-    return <div><LoginBox {...props}></LoginBox></div>
+    return <div>
+        <div><LoginBox {...model}></LoginBox></div>
+        </div>
     
 }
 export default LoginPage;
