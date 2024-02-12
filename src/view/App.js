@@ -28,8 +28,18 @@ function MainPage(props) {
     setLogInStatus(false);
     props.viewModel.isLoggedIn = false;
   }
-  function listappli() {
-    props.viewModel.listOfApplications()
+  async function listappli() {
+    try{
+      const data = await props.viewModel.listOfApplications()
+      if(data.error){
+        setLogInStatus(false)
+        login()
+      }
+    }catch(e){
+      console.log(e)
+    }
+    
+    
   }
 
   return (
