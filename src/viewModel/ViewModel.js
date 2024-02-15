@@ -27,7 +27,7 @@ class ViewModel {
         headers: {
           'Content-Type': 'application/json'
         },
-        credentials: "include",
+        credentials: "omit",
         body: JSON.stringify({ user })
       });
       const data = await response.json();
