@@ -56,10 +56,9 @@ class ViewModel {
         body: JSON.stringify({ username, password })
       });
       const data = await response.json();
-      console.log(data);
-      return data;
+      return data.exists;
     } catch (e) {
-      console.log(e);
+      console.log("Viewmodel LOgin error: "+e);
     }
   }
 
