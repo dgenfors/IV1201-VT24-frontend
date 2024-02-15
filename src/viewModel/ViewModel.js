@@ -14,16 +14,26 @@ class ViewModel {
 
   /**
   * Creates a new user account.
-  * @param {UserDto} user - An object containing user information.
+  * @param {UserDTO} user - An object containing user information.
   * @returns {Promise<{ success: boolean, existingFields: { username: boolean, email: boolean, personalNumber: boolean } }>} 
   * A Promise that resolves to an object indicating whether the account creation was successful and which fields already exist in the database if unsuccesful.
   */
   async createAccount(user) {
-    console.log("create acc")
+    console.log(user);
     try{
-      const response = await fetch('http://localhost:3001/register')
+      const response = await fetch('http://localhost:3001/createAccount', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: "include",
+        body: JSON.stringify({ user })
+      });
+      const data = await response.json();
+      return data;
     }catch(e){
-
+      console.log(e);
     }
     // Implementation details omitted
   }
@@ -46,6 +56,7 @@ class ViewModel {
         body: JSON.stringify({ username, password })
       });
       const data = await response.json();
+      console.log(data);
       return data;
     } catch (e) {
       console.log(e);
