@@ -19,7 +19,6 @@ class ViewModel {
   * A Promise that resolves to an object indicating whether the account creation was successful and which fields already exist in the database if unsuccesful.
   */
   async createAccount(user) {
-    console.log(user);
     try{
       const response = await fetch('http://localhost:3001/createAccount', {
         method: 'POST',
@@ -31,6 +30,10 @@ class ViewModel {
         body: JSON.stringify({ user })
       });
       const data = await response.json();
+      if(data.success){
+       const logInState = await this.login(user.username, user.password)
+       return {data, logInState}
+      }
       return data;
     }catch(e){
       console.log(e);

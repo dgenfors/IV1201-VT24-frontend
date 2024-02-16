@@ -9,7 +9,7 @@ import RegisterBox from "../components/RegisterBox/RegisterBox";
 function Register(model){
 
     return <div>
-        <div><RegisterBox {...model}></RegisterBox></div>
+        <RegisterBox {...model}></RegisterBox>
         </div>
     
 }
