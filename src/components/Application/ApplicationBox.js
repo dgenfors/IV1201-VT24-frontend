@@ -29,6 +29,10 @@ function addNewField() {
     }
 }
 
+function submit(){
+    
+}
+
 function cancel(){
     navigate('/')
 }
@@ -64,8 +68,8 @@ function cancel(){
             <CalenderBox></CalenderBox>
         </div>
         <div>
-        <button>Submit application!</button> 
         <button onClick={cancel}>Cancel</button>
+        <button onClick={submit}>Submit application!</button> 
         </div>
     </div>
 }
