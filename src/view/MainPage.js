@@ -28,18 +28,8 @@ function MainPage(props) {
     setLogInStatus(false);
     props.viewModel.isLoggedIn = false;
   }
-  async function listappli() {
-    try{
-      const data = await props.viewModel.listOfApplications()
-      if(data.error){
-        setLogInStatus(false)
-        login()
-      }
-    }catch(e){
-      console.log(e)
-    }
-    
-    
+  async function navAppli() {
+    navigate('/application');
   }
 
   return (
@@ -62,7 +52,7 @@ function MainPage(props) {
           <button onClick={login}>Login!</button>
         )}
       </div>
-      <div><button onClick={listappli}>listapp!</button></div>
+      <div><button onClick={navAppli}>Apply here!</button></div>
     </div>
   );
 }
