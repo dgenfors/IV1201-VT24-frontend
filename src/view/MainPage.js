@@ -4,12 +4,17 @@ import { useNavigate } from 'react-router-dom';
 
 /**
  * Represents the main page component.
- * @param {object} props - The props object containing viewModel.
- * @param {object} props.viewModel - The view model object with isLoggedIn property.
+ * @param {object} props - The props object.
+ * @param {object} props.viewModel - The view model object containing the isLoggedIn property.
  * @returns {JSX.Element} A JSX element representing the main page.
  */
 function MainPage(props) {
   const navigate = useNavigate();
+
+  /**
+   * State hook for user login status.
+   * @type {[boolean, function]}
+   */
   const [isLoggedIn, setLogInStatus] = useState(props.viewModel.isLoggedIn);
 
   /**
@@ -28,6 +33,11 @@ function MainPage(props) {
     setLogInStatus(false);
     props.viewModel.isLoggedIn = false;
   }
+
+  /**
+   * Navigates to the application page.
+   * @returns {void}
+   */
   async function navAppli() {
     navigate('/application');
   }

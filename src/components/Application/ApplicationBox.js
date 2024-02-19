@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
+import CalenderBox from '../CalendarBox/CalendarBox';
+import { useNavigate } from 'react-router-dom';
 
 function ApplicationBox(props){
 const [years, setYears] = useState([{xp: null, year: null}]);
 const [option, setOption] = useState("");
 const [additionalFields, setAdditionalFields] = useState([0]);
+const navigate = useNavigate();
 
 function changeExpertise(value, index){
     const updatedYears = [...years];
@@ -26,10 +29,12 @@ function addNewField() {
     }
 }
 
+function cancel(){
+    navigate('/')
+}
+
     return <div>
         <div>Apply for job here!</div>
-        <div></div>{/*Lägga in first name & last name som fylls i automatiskt :O*/}
-        
         <div>
             {additionalFields.map((field, index) => (
                     <div key={index+1}>
@@ -55,8 +60,12 @@ function addNewField() {
                 <button onClick={addNewField}>Add New Field</button>
         </div>
         <div>
-            Availability
-            
+            <div>When are you available?</div>
+            <CalenderBox></CalenderBox>
+        </div>
+        <div>
+        <button>Submit application!</button> 
+        <button onClick={cancel}>Cancel</button>
         </div>
     </div>
 }
