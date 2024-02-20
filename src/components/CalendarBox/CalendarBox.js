@@ -5,13 +5,14 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function CalenderBox(props){
 const [date, setDate] = useState([{startDate: new Date(), endDate: new Date()}]);
-const [allCals, setCals] = useState([new Date()]);
+const [allCals, setAllCals] = useState([new Date()]);
+
 
 function changeEndDate(value, index){
     const updatedDate = [...date];
     updatedDate[index].endDate = value;
     setDate(updatedDate);
-    console.log(updatedDate)
+    props.passData(date)
 }
 
 function changeStartDate(value, index){
@@ -19,13 +20,12 @@ function changeStartDate(value, index){
     updatedDate[index].startDate = value;
     if(value > updatedDate[index].endDate)
         updatedDate[index].endDate = updatedDate[index].startDate
-
     setDate(updatedDate);
-    console.log(updatedDate)
+    props.passData(date)
 }
 
 function addCalrow(){
-    setCals([...allCals, { id: Date.now() }]);
+    setAllCals([...allCals, { id: Date.now() }]);
     setDate([...date, {startDate: new Date(), endDate: new Date()}])
 }
 
@@ -38,7 +38,7 @@ return(
                     selected={date[index].startDate} 
                     label="From:" 
                     dateFormat={'YYYY-MM-dd'}
-                    onChange={(date) => changeStartDate(date, index)} /> 
+                    onChange={(date) => changeStartDate(date, index)} />
                           
                 To: <DatePicker 
                     selected={date[index].endDate} 

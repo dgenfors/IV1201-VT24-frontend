@@ -61,7 +61,7 @@ class ViewModel {
       const data = await response.json();
       return data.exists;
     } catch (e) {
-      console.log("Viewmodel LOgin error: "+e);
+      console.log("Viewmodel Login error: "+e);
     }
   }
 
@@ -78,8 +78,24 @@ class ViewModel {
   * @param {ApplicationDTO} application - The application to be submitted.
   * @returns {Promise<boolean>} A Promise that resolves to a boolean indicating success (true) or failure (false).
   */
-  submitApplication(app) {
+  async submitApplication(app) {
     // Implementation details omitted
+    try{
+      const response = await fetch('http://localhost:3001/createNewApplication', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: "include",
+        body: JSON.stringify({ app })
+      });
+      const data = await response.json();
+      return data;
+    }catch(e){
+      console.log(e);
+    }
+    console.log("submit"+ JSON.stringify(app))
   }
 
   /**

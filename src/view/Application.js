@@ -1,8 +1,8 @@
 import ApplicationBox from "../components/Application/ApplicationBox"
 
-function Application(){
+function Application(props){
 return(
-    <ApplicationBox></ApplicationBox>
+    <ApplicationBox {...props}></ApplicationBox>
 )
 }
 export default Application;
