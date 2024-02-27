@@ -38,7 +38,6 @@ class ViewModel {
     }catch(e){
       console.log(e);
     }
-    // Implementation details omitted
   }
 
   /**
@@ -61,7 +60,7 @@ class ViewModel {
       const data = await response.json();
       return data.exists;
     } catch (e) {
-      console.log("Viewmodel Login error: "+e);
+      console.log("Viewmodel Login error: " + e);
     }
   }
 
@@ -70,7 +69,7 @@ class ViewModel {
   * @returns {Promise<Array<Object>>} A Promise that resolves to an array of objects representing available jobs.
   */
   listOfJobs() {
-    // Implementation details omitted
+    
   }
 
   /**
@@ -78,8 +77,8 @@ class ViewModel {
   * @param {ApplicationDTO} application - The application to be submitted.
   * @returns {Promise<boolean>} A Promise that resolves to a boolean indicating success (true) or failure (false).
   */
-  async submitApplication(app) {
-    // Implementation details omitted
+  async submitApplication(application) {
+    console.log(application);
     try{
       const response = await fetch('http://localhost:3001/createNewApplication', {
         method: 'POST',
@@ -88,14 +87,13 @@ class ViewModel {
           'Content-Type': 'application/json'
         },
         credentials: "include",
-        body: JSON.stringify({ app })
+        body: JSON.stringify({ application })
       });
-      const data = await response.json();
-      return data;
+      const wasSuccessful = await response.json();
+      return wasSuccessful;
     }catch(e){
       console.log(e);
     }
-    console.log("submit"+ JSON.stringify(app))
   }
 
   /**
@@ -103,8 +101,8 @@ class ViewModel {
   * @param {string} username - The username for which to retrieve the application status.
   * @returns {Promise<"accepted" | "rejected" | "waiting">} A Promise that resolves to a string indicating the status of the application: "accepted", "rejected", or "waiting".
   */
-  applicationStatus(user) {
-    // Implementation details omitted
+  applicationStatus(username) {
+ 
   }
 
   /**
@@ -131,8 +129,8 @@ class ViewModel {
   * @param {string} username - The username of the person who owns the application to index it
   * @returns {Promise<boolean>} A Promise that resolves to a boolean indicating success (true) or failure (false).
   */
-  processApplication(user) {
-    // Implementation details omitted
+  processApplication(username) {
+   
   }
 
   /**
@@ -142,13 +140,12 @@ class ViewModel {
   */
  //Vet inte riktigt vad den ska returna om personen inte har en application inskickad så skrev null for now
   fetchUserData(user) {
-    // Implementation details omitted
+
   }
 
-  //Tror att den här borde tas bort eftersom functionen innan gör exakt samma sak egentligen, OBS vi borde ändra 
-  //ListAppDTO till att ha med username eftersom applicationID inte finns i databasen 
+
   fetchApplicationData() {
-    // Implementation details omitted
+    
   }
 }
 
