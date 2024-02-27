@@ -41,6 +41,9 @@ function MainPage(props) {
   async function navAppli() {
     navigate('/application');
   }
+  async function navRecruiter() {
+    navigate('/recruiterView');
+  }
 
   return (
     <div className="App">
@@ -63,6 +66,7 @@ function MainPage(props) {
         )}
       </div>
       <div><button onClick={navAppli}>Apply here!</button></div>
+      <div><button onClick={navRecruiter}>RecruiterView</button></div>
     </div>
   );
 }

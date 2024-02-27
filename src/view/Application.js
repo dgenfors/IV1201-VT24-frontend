@@ -1,4 +1,4 @@
-import ApplicationBox from "../components/Application/ApplicationBox";
+import ApplicationBox from "../components/ApplicationBox/ApplicationBox";
 
 /**
  * Represents a component for the application page.
