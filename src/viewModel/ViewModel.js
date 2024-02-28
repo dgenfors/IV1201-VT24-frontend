@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 
 /**
 * Represents a ViewModel for managing application state and data.
@@ -36,7 +35,7 @@ class ViewModel {
       }
       return data;
     }catch(e){
-      console.log(e);
+      return {error: "Could not connect to server, please try again later.\n"}
     }
   }
 
@@ -58,18 +57,10 @@ class ViewModel {
         body: JSON.stringify({ username, password })
       });
       const data = await response.json();
-      return data.exists;
+      return data;
     } catch (e) {
-      console.log("Viewmodel Login error: " + e);
+      return {error: "Could not connect to server, please try again later.\n"}
     }
-  }
-
-  /**
-  * Retrieves a list of available jobs from the database.
-  * @returns {Promise<Array<Object>>} A Promise that resolves to an array of objects representing available jobs.
-  */
-  listOfJobs() {
-    
   }
 
   /**
@@ -92,17 +83,9 @@ class ViewModel {
       const wasSuccessful = await response.json();
       return wasSuccessful;
     }catch(e){
-      console.log(e);
+      console.log('Error when submitting application',e);
+      return {error: "Could not connect to server, please try again later.\n"}
     }
-  }
-
-  /**
-  * Retrieves the status of the application for the given username.
-  * @param {string} username - The username for which to retrieve the application status.
-  * @returns {Promise<"accepted" | "rejected" | "waiting">} A Promise that resolves to a string indicating the status of the application: "accepted", "rejected", or "waiting".
-  */
-  applicationStatus(username) {
- 
   }
 
   /**
@@ -117,9 +100,11 @@ class ViewModel {
       credentials: "include",
       });
       const data = await response.json();
+      console.log(data)
       return data
   } catch (error) {
       console.error('Error fetching list of applications:', error);
+     return {error: "Could not connect to server, please try again later.\n"}
   }
   }
 
@@ -129,7 +114,6 @@ class ViewModel {
   * @returns {Promise<boolean>} A Promise that resolves to a boolean indicating success (true) or failure (false).
   */
   processApplication(username) {
-   
   }
 
   /**
@@ -139,13 +123,25 @@ class ViewModel {
   */
  //Vet inte riktigt vad den ska returna om personen inte har en application inskickad så skrev null for now
   fetchUserData(user) {
-
   }
-
 
   fetchApplicationData() {
-    
   }
+
+  /**
+  * Retrieves a list of available jobs from the database.
+  * @returns {Promise<Array<Object>>} A Promise that resolves to an array of objects representing available jobs.
+  */
+  listOfJobs() {
+  }
+
+    /**
+  * Retrieves the status of the application for the given username.
+  * @param {string} username - The username for which to retrieve the application status.
+  * @returns {Promise<"accepted" | "rejected" | "waiting">} A Promise that resolves to a string indicating the status of the application: "accepted", "rejected", or "waiting".
+  */
+    applicationStatus(username) {
+    }
 }
 
 export default ViewModel;

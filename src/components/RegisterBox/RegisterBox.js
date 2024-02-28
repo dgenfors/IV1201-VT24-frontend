@@ -27,6 +27,7 @@ function RegisterBox(props) {
     const [passwordEmpty, setPasswordEmpty] = useState(true);
     const [emailEmpty, setEmailEmpty] = useState(true);
     const [pnumbrEmpty, setPnumbrEmpty] = useState(true);
+    const [errorMessage, setErrorMessage] = useState("");
     
     const navigate = useNavigate();
 
@@ -69,8 +70,10 @@ function RegisterBox(props) {
             return null
         const userDTO = new UserDTO(firstName, lastName, email, pnumbr, username, password);
         const data = await props.viewModel.createAccount(userDTO);
-        
-        if(data.logInState){
+        if(data.error){
+            setErrorMessage(data.error)
+            return
+        } else if(data.logInState){
             props.viewModel.isLoggedIn = data.logInState;
             navigate("/")
         }
@@ -171,6 +174,7 @@ function RegisterBox(props) {
         <div className="button-container">
             <button onClick={register}>Register</button>
         </div>
+        <div style = {{ color : 'red' }}>{errorMessage}</div>
     </div>  
     );
 }

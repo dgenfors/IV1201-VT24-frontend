@@ -26,12 +26,14 @@ async function handleClick() {
         const logInState = await props.viewModel.login(username, password);
 
         // If login is unsuccessful, display an error message.
-        if (!logInState) {
-            setErrorMessage("Invalid username or password");
-        } else {
+        if (logInState.error) {
+            setErrorMessage(logInState.error);
+        } else if(logInState) {
             // If login is successful, update the isLoggedIn state in the view model and navigate to the home page.
             props.viewModel.isLoggedIn = true;
             navigate('/');
+        }else{
+          setErrorMessage("Invalid username or password")
         }
     } catch (error) {
         // If an error occurs during the login process, log the error and display a generic error message.
@@ -65,7 +67,7 @@ async function handleClick() {
         <div><button onClick={handleClick}>Login</button></div>
         <div><button onClick={register}>Sign Up</button></div>
         {loading && <div>Loading...</div>}
-        <div>{errorMessage}</div>
+        <div style={{ color: 'red' }}>{errorMessage}</div>
     </div>)
     
     }

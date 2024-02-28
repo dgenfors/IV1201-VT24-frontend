@@ -13,10 +13,10 @@ function ApplicationBox(props){
     const [competence, setCompetence] = useState([{exp: "", year: ""}]);
     const [additionalFields, setAdditionalFields] = useState([0]);
     const [timePeriod, setTimePeriod] = useState([{startDate: new Date(), endDate: new Date()}]);
-    const [errorMessage, setErrorMessage] = useState("");
     const [message, setMessage] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [dbErrorMessage, setDbErrorMessage] = useState("");
     const navigate = useNavigate();
-
     /**
      * Handles the change in expertise input.
      * @param {Event} value - The event object containing the expertise input value.
@@ -63,10 +63,13 @@ function ApplicationBox(props){
         else{
             const applicationDTO =  new ApplicationDTO(competence, timePeriod);
             const dbMsg = await props.viewModel.submitApplication(applicationDTO)
-            console.log(dbMsg)
-            if (dbMsg){
+            if(dbMsg.error){
+                setDbErrorMessage(dbMsg.error)
+            }else{
                 setMessage(true)
+               
             }
+            
         }
     }
 
@@ -119,14 +122,13 @@ function ApplicationBox(props){
         <div>
             <div>When are you available?</div>
             <CalenderBox passData={passTimePeriod}></CalenderBox>
-    
         <button onClick={cancel}>Cancel</button>
         <button onClick={submit}>Submit application!</button> 
         <></>
         </div>
     </div>
     }
-        
+    <div style={{ color: 'red' }}>{dbErrorMessage}</div>
     </div>
     )
 }
