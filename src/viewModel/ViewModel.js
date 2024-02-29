@@ -24,7 +24,7 @@ class ViewModel {
   */
   async createAccount(user) {
     try{
-      const response = await fetch('http://localhost:3001/createAccount', {
+      const response = await fetch('http://localhost:3001/unauthorized/createAccount', {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -52,7 +52,7 @@ class ViewModel {
   */
   async login(username, password) {
     try {
-      const response = await fetch('http://localhost:3001/login', {
+      const response = await fetch('http://localhost:3001/unauthorized/login', {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -78,7 +78,7 @@ class ViewModel {
   async submitApplication(application) {
     console.log(application);
     try{
-      const response = await fetch('http://localhost:3001/createNewApplication', {
+      const response = await fetch('http://localhost:3001/user/createNewApplication', {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -101,7 +101,7 @@ class ViewModel {
   */
   async listOfApplications() {
     try {
-      const response = await fetch('http://localhost:3001/allApplications', {
+      const response = await fetch('http://localhost:3001/recruiter/allApplications', {
       method: 'GET',
       mode: 'cors',
       credentials: "include",
