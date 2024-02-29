@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/TopBar/Topbar';
 
@@ -12,27 +11,14 @@ import Header from '../components/TopBar/Topbar';
 function MainPage(props) {
   const navigate = useNavigate();
   /**
-   * State hook for user login status.
+   * State hook for user role ID.
    * @type {[boolean, function]}
    */
-  const [isLoggedIn, setLogInStatus] = useState(props.viewModel.isLoggedIn);
   const [roleID, setRoleID] = useState(props.viewModel.roleID)
 
-  /**
-   * Navigates to the login page.
-   * @returns {void}
-   */
-  function login() {
-    navigate('/login');
-  }
-
-  /**
-   * Logs out the user.
-   * @returns {void}
-   */
-  function logout() {
-    setLogInStatus(false);
-    props.viewModel.isLoggedIn = false;
+  function changeRoleID(id){
+    setRoleID(id)
+    props.viewModel.setRoleID(id)
   }
 
   /**
@@ -48,9 +34,7 @@ function MainPage(props) {
 
   return (
     <div className="App">
-      <Header>
-        Welcome to Chipi Chapa - Land
-      </Header>
+      <Header {...props} changeRoleID={changeRoleID}/>
       Chipi chipi chapa chapa
       Dubi dubi daba daba
       Mágico mi dubi dubi
@@ -59,13 +43,6 @@ function MainPage(props) {
       Dubi dubi daba daba
       Mágico mi dubi dubi
       Bum 
-      <div>
-        {isLoggedIn ? (
-          <button onClick={logout}>Logout!</button>
-        ) : (
-          <button onClick={login}>Login!</button>
-        )}
-      </div>
       <div>
         {roleID === 2 && <button onClick={navAppli}>Apply here!</button>}
         {roleID === 1 && <button onClick={navRecruiter}>RecruiterView</button>}

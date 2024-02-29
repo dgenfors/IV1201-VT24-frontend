@@ -11,9 +11,10 @@ class ViewModel {
     this.isLoggedIn = false;
     this.roleID = null;
   }
-  async setRoleID(){
+  async setRoleID(id){
     /*const roleID = await fetch()
     this.roleID= roleID*/
+    this.roleID = id
   }
   /**
   * Creates a new user account.

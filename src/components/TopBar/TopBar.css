@@ -1,13 +1,34 @@
 .amusement-park-header {
-    background-color: #FFD700; /* Use a gold color for the header background */
-    color: #000; /* Use black color for the text */
+    background-color: #ffd700;
+    color: #000;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-}
-
-.amusement-park-header h1 {
-    margin: 0;
-    font-size: 36px;
-    font-weight: bold;
-}
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between; /* Put space between the two divs */
+    align-items: center;
+    height: 30px;
+  }
+  
+  .header-content {
+    flex-grow: 1; /* Allow the text to take up remaining space */
+  }
+  
+  .button-container button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  .button-container button:hover {
+    background-color: #45a049; 
+  }
+  

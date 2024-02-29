@@ -1,4 +1,5 @@
 import ApplicationBox from "../components/ApplicationBox/ApplicationBox";
+import Header from "../components/TopBar/Topbar"
 
 /**
  * Represents a component for the application page.
@@ -7,7 +8,10 @@ import ApplicationBox from "../components/ApplicationBox/ApplicationBox";
  */
 function Application(props){
     return(
+        <div>
+        <Header {...props}></Header>
         <ApplicationBox {...props}></ApplicationBox>
+        </div>
     );
 }
 

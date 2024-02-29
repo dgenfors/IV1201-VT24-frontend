@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Application from "../components/Application/Application"
+import Header from '../components/TopBar/Topbar'
 
 function RecruiterView(props){
     const[applications, setApplications] = useState([])
@@ -27,6 +28,7 @@ function RecruiterView(props){
         return <Application key={index} {...application} />;
     }
     return <div>
+        <Header {...props}/>
         <div style={{display: 'flex', justifyContent:'space-evenly', margin:'3px', marginBottom:'6px', borderWidth:'1px', borderStyle: 'solid'}}>
         <span>Last name</span>
         <span>First name</span>
