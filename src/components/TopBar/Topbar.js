@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Header(props) {
-  console.log(props)
   const navigate = useNavigate();
   const [isLoggedIn, setLogInStatus] = useState(props.viewModel.isLoggedIn);
    /**

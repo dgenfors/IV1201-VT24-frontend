@@ -1,8 +1,10 @@
 import { useState } from "react"
 import Application from "../components/Application/Application"
 import Header from '../components/TopBar/Topbar'
+import { useNavigate } from 'react-router-dom';
 
 function RecruiterView(props){
+    const navigate = useNavigate();
     const[applications, setApplications] = useState([])
     const [errorMessage, setErrorMessage] = useState("")
     
@@ -21,14 +23,16 @@ function RecruiterView(props){
         }
     }
     
-    async function changeStatus(){  
+    function changeRoleID(id){
+        props.viewModel.setRoleID(id)
+        navigate("/");
     }
 
     function mapApplications(application, index){
         return <Application key={index} {...application} />;
     }
     return <div>
-        <Header {...props}/>
+        <Header {...props} changeRoleID={changeRoleID}/>
         <div style={{display: 'flex', justifyContent:'space-evenly', margin:'3px', marginBottom:'6px', borderWidth:'1px', borderStyle: 'solid'}}>
         <span>Last name</span>
         <span>First name</span>
