@@ -9,8 +9,12 @@ class ViewModel {
     * @type {boolean}
     */
     this.isLoggedIn = false;
+    this.roleID = null;
   }
-
+  async setRoleID(){
+    /*const roleID = await fetch()
+    this.roleID= roleID*/
+  }
   /**
   * Creates a new user account.
   * @param {UserDTO} user - An object containing user information.
@@ -57,7 +61,9 @@ class ViewModel {
         body: JSON.stringify({ username, password })
       });
       const data = await response.json();
-      return data;
+      console.log(data)
+      this.roleID = data.role_id
+      return data.state;
     } catch (e) {
       return {error: "Could not connect to server, please try again later.\n"}
     }

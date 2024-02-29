@@ -19,28 +19,23 @@ function LoginBox(props){
    * @returns {Promise<void>}
    */
 async function handleClick() {
-    setLoading(true); // Set loading state to true to indicate that login process is in progress.
-    setErrorMessage(""); // Clear any previous error message.
+    setLoading(true); 
+    setErrorMessage("");
     try {
-        // Attempt to log in using the provided username and password.
         const logInState = await props.viewModel.login(username, password);
-
-        // If login is unsuccessful, display an error message.
         if (logInState.error) {
             setErrorMessage(logInState.error);
         } else if(logInState) {
-            // If login is successful, update the isLoggedIn state in the view model and navigate to the home page.
             props.viewModel.isLoggedIn = true;
             navigate('/');
         }else{
           setErrorMessage("Invalid username or password")
         }
     } catch (error) {
-        // If an error occurs during the login process, log the error and display a generic error message.
         console.error("Error:", error);
         setErrorMessage("An error occurred while logging in");
     } finally {
-      setLoading(false); // Regardless of success or failure, set loading state back to false.
+      setLoading(false); 
   }
 }
     /**

@@ -1,0 +1,13 @@
+.amusement-park-header {
+    background-color: #FFD700; /* Use a gold color for the header background */
+    color: #000; /* Use black color for the text */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.amusement-park-header h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+}

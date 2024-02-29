@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/TopBar/Topbar';
 
 /**
  * Represents the main page component.
@@ -10,12 +11,12 @@ import { useNavigate } from 'react-router-dom';
  */
 function MainPage(props) {
   const navigate = useNavigate();
-
   /**
    * State hook for user login status.
    * @type {[boolean, function]}
    */
   const [isLoggedIn, setLogInStatus] = useState(props.viewModel.isLoggedIn);
+  const [roleID, setRoleID] = useState(props.viewModel.roleID)
 
   /**
    * Navigates to the login page.
@@ -47,9 +48,9 @@ function MainPage(props) {
 
   return (
     <div className="App">
-      <h1>
+      <Header>
         Welcome to Chipi Chapa - Land
-      </h1>
+      </Header>
       Chipi chipi chapa chapa
       Dubi dubi daba daba
       Mágico mi dubi dubi
@@ -65,8 +66,11 @@ function MainPage(props) {
           <button onClick={login}>Login!</button>
         )}
       </div>
-      <div><button onClick={navAppli}>Apply here!</button></div>
-      <div><button onClick={navRecruiter}>RecruiterView</button></div>
+      <div>
+        {roleID === 2 && <button onClick={navAppli}>Apply here!</button>}
+        {roleID === 1 && <button onClick={navRecruiter}>RecruiterView</button>}
+        {roleID === null && <div></div>}
+      </div>
     </div>
   );
 }
