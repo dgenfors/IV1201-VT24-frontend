@@ -33,7 +33,7 @@ function RecruiterView(props){
     }
     return <div>
         <Header {...props} changeRoleID={changeRoleID}/>
-        <div style={{display: 'flex', justifyContent:'space-evenly', margin:'3px', marginBottom:'6px', borderWidth:'1px', borderStyle: 'solid'}}>
+        <div style={{display: 'flex', justifyContent:'space-evenly', margin:'3px', marginBottom:'6px', borderWidth:'1px', borderStyle: 'solid',backgroundColor: '#f5f5f5'}}>
         <span>Last name</span>
         <span>First name</span>
         <span>Status</span>

@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 3px;
+    border-width: 2px;
+    border-style: solid;
+    font-family: Arial, sans-serif;
+    height: 30px;
+    margin-bottom: 5px;
+  }
+  .span {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
