@@ -9,7 +9,7 @@ function Application (application){
     return <div className='container'>
         <span className='span' style={{backgroundColor: '#b7e4c7'}}>{lastName}</span>
         <span className='span' style={{backgroundColor: '#edc531'}}>{firstName}</span>
-        <span className='span' style={{backgroundColor: '#f4845f'}}>{firstName}</span>
+        <span className='span' style={{backgroundColor: '#f4845f'}}>{status}</span>
         </div>
 }
 export default Application

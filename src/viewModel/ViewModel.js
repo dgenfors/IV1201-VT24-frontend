@@ -90,7 +90,6 @@ class ViewModel {
   * @returns {Promise<boolean>} A Promise that resolves to a boolean indicating success (true) or failure (false).
   */
   async submitApplication(application) {
-    console.log(application);
     try{
       const response = await fetch('http://localhost:3001/user/createNewApplication', {
         method: 'POST',

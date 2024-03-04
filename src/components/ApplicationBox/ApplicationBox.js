@@ -56,11 +56,15 @@ function ApplicationBox(props){
      * Submits the application.
      */
     async function submit(){
-        if(competence[competence.length-1].exp == "" && competence[competence.length-1].year !=="")
+        if(!competence[competence.length-1].exp && competence[competence.length-1].year)
             setErrorMessage("*Please specify area of expertise.")
-        else if(competence[competence.length-1].exp !== "" && competence[competence.length-1].year =="")
+        else if(competence[competence.length-1].exp && !competence[competence.length-1].year)
             setErrorMessage("*Please specify years of experience.")
         else{
+            if(!competence[competence.length-1].exp && !competence[competence.length-1].year){
+                competence[competence.length-1].exp = 'none';
+                competence[competence.length-1].year = 0;
+            }
             const applicationDTO =  new ApplicationDTO(competence, timePeriod);
             const dbMsg = await props.viewModel.submitApplication(applicationDTO)
             if(dbMsg.error){
