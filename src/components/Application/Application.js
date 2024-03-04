@@ -3,7 +3,7 @@ import './Application.css'
 
 function Application (application){
     const [lastName, setLastName] = useState(application.surname)
-    const [firstName, setFirstName] = useState(application.name)   
+    const [firstName, setFirstName] = useState(application.name)
     const [status, setStatus] = useState(application.application_status)
 
     return <div className='container'>
