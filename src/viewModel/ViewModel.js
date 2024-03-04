@@ -16,6 +16,20 @@ class ViewModel {
     this.roleID= roleID*/
     this.roleID = id
   }
+
+  async checkRoleID(){
+    try{
+      const response = await fetch('http://localhost:3001/validate/checkIfLogIn', {
+        method: 'POST',
+        mode: 'cors',
+        credentials: "include",
+      });
+      const data = await response.json();
+      return data;
+    }catch(e){
+      return {error: "Could not connect to server, please try again later.\n"}
+    }
+  }
   /**
   * Creates a new user account.
   * @param {UserDTO} user - An object containing user information.

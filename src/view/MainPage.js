@@ -15,10 +15,29 @@ function MainPage(props) {
    * @type {[boolean, function]}
    */
   const [roleID, setRoleID] = useState(props.viewModel.roleID)
+  const [isLoggedIn, setLogInStatus] = useState(props.viewModel.isLoggedIn);
+  
+  function changeRoleID(){
+    console.log("hej")
+  }
+  useEffect(() => {
+    getRole()
+  },[]);
 
-  function changeRoleID(id){
-    setRoleID(id)
-    props.viewModel.setRoleID(id)
+  async function getRole(){
+    const id = await props.viewModel.checkRoleID()
+    if(id.error){
+      setRoleID(null)
+      props.viewModel.setRoleID(null)
+      setLogInStatus(false)
+      props.viewModel.isLoggedIn = false
+    } 
+    else{
+      setRoleID(id)
+      props.viewModel.setRoleID(id)
+      setLogInStatus(true)
+      props.viewModel.isLoggedIn = true
+    }
   }
 
   /**
@@ -34,7 +53,7 @@ function MainPage(props) {
 
   return (
     <div className="App">
-      <Header {...props} changeRoleID={changeRoleID}/>
+      <Header {...props} changeRoleID={changeRoleID} roleID = {roleID} logInStatus ={isLoggedIn}/>
       Chipi chipi chapa chapa
       Dubi dubi daba daba
       Mágico mi dubi dubi

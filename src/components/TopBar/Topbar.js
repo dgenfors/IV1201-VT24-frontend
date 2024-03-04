@@ -1,11 +1,13 @@
 import React from 'react';
 import './TopBar.css'; // Import the CSS file for styling
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Header(props) {
   const navigate = useNavigate();
   const [isLoggedIn, setLogInStatus] = useState(props.viewModel.isLoggedIn);
+
+  
    /**
    * Navigates to the login page.
    * @returns {void}
@@ -23,6 +25,10 @@ function Header(props) {
     props.viewModel.isLoggedIn = false;
     props.changeRoleID(null)
   }
+
+  useEffect(() => {
+    setLogInStatus(props.viewModel.isLoggedIn)
+  },[isLoggedIn, props.roleID]);
   return (
     <div className="amusement-park-header">
     <div className="header-content">
