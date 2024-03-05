@@ -109,6 +109,9 @@ class ViewModel {
         headers: {
           'Content-Type': 'application/json'
         },
+        headers: {
+          'Authorization': `Bearer ${this.token}`
+        },
         credentials: "include",
         body: JSON.stringify({ application })
       });
@@ -130,6 +133,9 @@ class ViewModel {
       method: 'GET',
       mode: 'cors',
       credentials: "include",
+      headers: {
+        'Authorization': `Bearer ${this.token}`
+      }
       });
       const data = await response.json();
       console.log(data)
