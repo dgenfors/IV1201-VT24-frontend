@@ -107,9 +107,7 @@ class ViewModel {
         method: 'POST',
         mode: 'cors',
         headers: {
-          'Content-Type': 'application/json'
-        },
-        headers: {
+          'Content-Type': 'application/json',
           'Authorization': `Bearer ${this.token}`
         },
         credentials: "include",
