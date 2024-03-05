@@ -19,7 +19,7 @@ class ViewModel {
 
   async checkRoleID(){
     try{
-      const response = await fetch('https://iv1201-vt24-backend.vercel.app/src/server/validate/checkIfLogIn', {
+      const response = await fetch('https://iv1201-vt24-backend.vercel.app/validate/checkIfLogIn', {
         method: 'POST',
         mode: 'cors',
         credentials: "include",
@@ -38,7 +38,7 @@ class ViewModel {
   */
   async createAccount(user) {
     try{
-      const response = await fetch('https://iv1201-vt24-backend.vercel.app/src/unauthorized/createAccount', {
+      const response = await fetch('https://iv1201-vt24-backend.vercel.app/unauthorized/createAccount', {
         method: 'POST',
         mode: 'cors',
         headers: {
