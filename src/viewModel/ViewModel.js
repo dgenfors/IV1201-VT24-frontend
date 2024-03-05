@@ -25,6 +25,7 @@ class ViewModel {
         credentials: "include",
       });
       const data = await response.json();
+      console.log(JSON.stringify(data))
       return data;
     }catch(e){
       return {error: "Could not connect to server, please try again later.\n"}
