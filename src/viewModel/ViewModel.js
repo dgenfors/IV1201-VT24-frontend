@@ -66,7 +66,7 @@ class ViewModel {
   */
   async login(username, password) {
     try {
-      const response = await fetch('http://localhost:3001/unauthorized/login', {
+      const response = await fetch('https://iv1201-vt24-backend.vercel.app/unauthorized/login', {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -91,7 +91,7 @@ class ViewModel {
   */
   async submitApplication(application) {
     try{
-      const response = await fetch('http://localhost:3001/user/createNewApplication', {
+      const response = await fetch('https://iv1201-vt24-backend.vercel.app/user/createNewApplication', {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -114,7 +114,7 @@ class ViewModel {
   */
   async listOfApplications() {
     try {
-      const response = await fetch('http://localhost:3001/recruiter/allApplications', {
+      const response = await fetch('https://iv1201-vt24-backend.vercel.app/recruiter/allApplications', {
       method: 'GET',
       mode: 'cors',
       credentials: "include",
