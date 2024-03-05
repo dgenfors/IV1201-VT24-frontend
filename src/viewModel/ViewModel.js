@@ -10,6 +10,7 @@ class ViewModel {
     */
     this.isLoggedIn = false;
     this.roleID = null;
+    this.token = null;
   }
   async setRoleID(id){
     /*const roleID = await fetch()
@@ -18,11 +19,15 @@ class ViewModel {
   }
 
   async checkRoleID(){
+    console.log(this.token)
     try{
       const response = await fetch('https://iv1201-vt24-backend.vercel.app/validate/checkIfLogIn', {
         method: 'POST',
         mode: 'cors',
         credentials: "include",
+        headers: {
+          'Authorization': `Bearer ${this.token}`
+        }
       });
       const data = await response.json();
       console.log(JSON.stringify(data))
@@ -79,15 +84,13 @@ class ViewModel {
         body: JSON.stringify({ username, password })
       });
       const authHeader = response.headers.get('Authorization')
-      console.log(response)
       if (!authHeader) {
         return {error: "could not login"}
       }
       const token = authHeader.split(' ')[1];
-      console.log(token);
+      this.token = token
 
       const data = await response.json();
-      console.log(data)
       this.roleID = data.role_id
       return data.state;
     } catch (e) {
