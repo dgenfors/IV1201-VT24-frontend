@@ -50,6 +50,7 @@ class ViewModel {
       const data = await response.json();
       if(data.success){
        const logInState = await this.login(user.username, user.password)
+       console.log(logInState)
        return {data, logInState}
       }
       return data;
