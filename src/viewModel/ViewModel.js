@@ -79,6 +79,7 @@ class ViewModel {
         body: JSON.stringify({ username, password })
       });
       const authHeader = response.headers.get('Authorization')
+      console.log(response)
       if (!authHeader) {
         return {error: "could not login"}
       }
