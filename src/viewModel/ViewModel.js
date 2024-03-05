@@ -78,6 +78,13 @@ class ViewModel {
         credentials: "include",
         body: JSON.stringify({ username, password })
       });
+      const authHeader = response.headers.get('Authorization')
+      if (!authHeader) {
+        return {error: "could not login"}
+      }
+      const token = authHeader.split(' ')[1];
+      console.log(token);
+
       const data = await response.json();
       console.log(data)
       this.roleID = data.role_id
