@@ -19,7 +19,6 @@ class ViewModel {
   }
 
   async checkRoleID(){
-    console.log(this.token)
     try{
       const response = await fetch('https://iv1201-vt24-backend.vercel.app/validate/checkIfLogIn', {
         method: 'POST',
@@ -30,7 +29,6 @@ class ViewModel {
         }
       });
       const data = await response.json();
-      console.log(JSON.stringify(data))
       return data;
     }catch(e){
       return {error: "Could not connect to server, please try again later.\n"}
