@@ -19,6 +19,9 @@ class ViewModel {
   }
 
   async checkRoleID(){
+    if(!this.token){
+      return {error: "invalid token"}
+    }
     try{
       const response = await fetch('https://iv1201-vt24-backend.vercel.app/validate/checkIfLogIn', {
         method: 'POST',

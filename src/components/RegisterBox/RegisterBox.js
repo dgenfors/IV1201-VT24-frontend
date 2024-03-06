@@ -89,8 +89,8 @@ function RegisterBox(props) {
      * @returns {JSX.Element} The JSX element representing the registration form.
      */
     return (
-        <div className="container">
-        <div className="input-container">
+        <div>
+        <div>
             <input
                 type="FirstName"
                 value={firstName}
@@ -102,7 +102,7 @@ function RegisterBox(props) {
             />
             {!firstNameEmpty && <span className="error-message" style={{ color: 'red' }}>*Please provide a name</span>}
         </div>
-        <div className="input-container">
+        <div>
             <input
                 type="LastName"
                 value={lastName}
@@ -114,7 +114,7 @@ function RegisterBox(props) {
             />
             {!lastNameEmpty && <span className="error-message" style={{ color: 'red' }}>*Please provide a last name</span>}
         </div>
-        <div className="input-container">
+        <div>
             <input
                 type="email"
                 value={email}
@@ -129,7 +129,7 @@ function RegisterBox(props) {
             {!emailState && <span className="error-message" style={{ color: 'red' }}>*This email is already in use</span>}
             {!emailEmpty && <span className="error-message" style={{ color: 'red' }}>*Please provide a email</span>}
         </div>
-        <div className="input-container">
+        <div>
             <input
                 type="pnumbr"
                 value={pnumbr}
@@ -144,7 +144,7 @@ function RegisterBox(props) {
             {!pnumbrState && <span className="error-message" style={{ color: 'red' }}>*This personal number is already in use</span>}
             {!pnumbrEmpty && <span className="error-message" style={{ color: 'red' }}>*Please provide a personal number</span>}
         </div>
-        <div className="input-container">
+        <div>
             <input
                 type="username"
                 value={username}
@@ -159,7 +159,7 @@ function RegisterBox(props) {
             {!usernameState && <span className="error-message" style={{ color: 'red' }}>*This username is already in use</span>}
             {!usernameEmpty && <span className="error-message" style={{ color: 'red' }}>*Please provide a username</span>}
         </div>
-        <div className="input-container">
+        <div>
             <input
                 type="password"
                 value={password}
@@ -171,7 +171,7 @@ function RegisterBox(props) {
             />
             {!passwordEmpty && <span className="error-message" style={{ color: 'red' }}>*Please provide a password</span>}
         </div>
-        <div className="button-container">
+        <div>
             <button onClick={register}>Register</button>
         </div>
         <div style = {{ color : 'red' }}>{errorMessage}</div>
