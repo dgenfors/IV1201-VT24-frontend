@@ -9,13 +9,17 @@ import { useNavigate } from 'react-router-dom';
  */
 function Application(props){
     const navigate = useNavigate();
-    function changeRoleID(id){
-        props.viewModel.setRoleID(id)
-        navigate("/");
-    }
+
+    function logoutUser(){
+        setRoleID(null)
+        props.viewModel.setRoleID(null)
+        setLogInStatus(false)
+        props.viewModel.isLoggedIn = false
+        navigate('/')
+      }
     return(
         <div>
-        <Header {...props} changeRoleID={changeRoleID}></Header>
+        <Header {...props} logoutUser={logoutUser}></Header>
         <ApplicationBox {...props}></ApplicationBox>
         </div>
     );
