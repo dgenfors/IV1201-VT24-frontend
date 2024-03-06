@@ -11,9 +11,7 @@ function Application(props){
     const navigate = useNavigate();
 
     function logoutUser(){
-        setRoleID(null)
         props.viewModel.setRoleID(null)
-        setLogInStatus(false)
         props.viewModel.isLoggedIn = false
         navigate('/')
       }
