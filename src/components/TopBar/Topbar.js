@@ -21,6 +21,7 @@ function Header(props) {
    * @returns {void}
    */
   function logout() {
+    console.log(props)
     setLogInStatus(false);
     props.viewModel.isLoggedIn = false;
     props.logoutUser()
