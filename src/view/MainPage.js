@@ -22,8 +22,9 @@ function MainPage(props) {
     props.viewModel.setRoleID(null)
     setLogInStatus(false)
     props.viewModel.isLoggedIn = false
+    props.viewModel.token = null;
   }
-  useEffect(() => {
+  /*useEffect(() => {
     getRole()
   },[]);
 
@@ -43,7 +44,7 @@ function MainPage(props) {
       setLogInStatus(true)
       props.viewModel.isLoggedIn = true
     }
-  }
+  }*/
 
   /**
    * Navigates to the application page.

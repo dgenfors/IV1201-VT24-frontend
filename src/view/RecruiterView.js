@@ -26,6 +26,7 @@ function RecruiterView(props){
     function logoutUser(){
         props.viewModel.setRoleID(null)
         props.viewModel.isLoggedIn = false
+        props.viewModel.token = null;
         navigate('/')
       }
 
