@@ -28,6 +28,7 @@ function MainPage(props) {
   },[]);
 
   async function getRole(){
+    console.log("hej")
     const id = await props.viewModel.checkRoleID()
     if(id.error){
       setRoleID(null)
