@@ -56,7 +56,7 @@ function MainPage(props) {
 
   return (
     <div className="App">
-      <Header {...props} changeRoleID={logoutUser} roleID = {roleID} logInStatus ={isLoggedIn}/>
+      <Header {...props} logoutUser={logoutUser} roleID = {roleID} logInStatus ={isLoggedIn}/>
       Chipi chipi chapa chapa
       Dubi dubi daba daba
       Mágico mi dubi dubi
