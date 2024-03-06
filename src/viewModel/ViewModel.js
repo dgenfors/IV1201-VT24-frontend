@@ -1,4 +1,4 @@
-
+import CryptoJS from 'crypto-js';
 /**
 * Represents a ViewModel for managing application state and data.
 */
@@ -16,6 +16,10 @@ class ViewModel {
     /*const roleID = await fetch()
     this.roleID= roleID*/
     this.roleID = id
+  }
+  hashPassword(password) {
+    const hash = CryptoJS.SHA256(password);
+    return hash.toString(CryptoJS.enc.Hex);
   }
 
   async checkRoleID(){
@@ -44,6 +48,8 @@ class ViewModel {
   * A Promise that resolves to an object indicating whether the account creation was successful and which fields already exist in the database if unsuccesful.
   */
   async createAccount(user) {
+    user.password= this.hashPassword(user.password)
+    console.log(user.password)
     try{
       const response = await fetch('https://iv1201-vt24-backend.vercel.app/unauthorized/createAccount', {
         method: 'POST',
@@ -74,6 +80,8 @@ class ViewModel {
   * @returns {Promise<boolean>} A Promise that resolves to a boolean indicating login success.
   */
   async login(username, password) {
+    const hashedPassword = this.hashPassword(password)
+    console.log(hashedPassword)
     try {
       const response = await fetch('https://iv1201-vt24-backend.vercel.app/unauthorized/login', {
         method: 'POST',
@@ -82,7 +90,7 @@ class ViewModel {
           'Content-Type': 'application/json'
         },
         credentials: "include",
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ username, hashedPassword })
       });
       const authHeader = response.headers.get('Authorization')
       if (!authHeader) {
