@@ -23,7 +23,7 @@ function Header(props) {
   function logout() {
     setLogInStatus(false);
     props.viewModel.isLoggedIn = false;
-    props.changeRoleID(null)
+    props.logoutUser()
   }
 
   useEffect(() => {

@@ -17,8 +17,11 @@ function MainPage(props) {
   const [roleID, setRoleID] = useState(props.viewModel.roleID)
   const [isLoggedIn, setLogInStatus] = useState(props.viewModel.isLoggedIn);
   
-  function changeRoleID(){
-    console.log("hej")
+  function logoutUser(){
+    setRoleID(null)
+    props.viewModel.setRoleID(null)
+    setLogInStatus(false)
+    props.viewModel.isLoggedIn = false
   }
   useEffect(() => {
     getRole()
@@ -53,7 +56,7 @@ function MainPage(props) {
 
   return (
     <div className="App">
-      <Header {...props} changeRoleID={changeRoleID} roleID = {roleID} logInStatus ={isLoggedIn}/>
+      <Header {...props} changeRoleID={logoutUser} roleID = {roleID} logInStatus ={isLoggedIn}/>
       Chipi chipi chapa chapa
       Dubi dubi daba daba
       Mágico mi dubi dubi
