@@ -23,16 +23,17 @@ function RecruiterView(props){
         }
     }
     
-    function changeRoleID(id){
-        props.viewModel.setRoleID(id)
-        navigate("/");
-    }
+    function logoutUser(){
+        props.viewModel.setRoleID(null)
+        props.viewModel.isLoggedIn = false
+        navigate('/')
+      }
 
     function mapApplications(application, index){
         return <Application key={index} {...application} />;
     }
     return <div>
-        <Header {...props} changeRoleID={changeRoleID}/>
+        <Header {...props} logoutUser={logoutUser}/>
         <div style={{display: 'flex', justifyContent:'space-evenly', margin:'3px', marginBottom:'6px', borderWidth:'1px', borderStyle: 'solid',backgroundColor: '#f5f5f5'}}>
         <span>Last name</span>
         <span>First name</span>
