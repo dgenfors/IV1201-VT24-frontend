@@ -56,6 +56,7 @@ function ApplicationBox(props){
      * Submits the application.
      */
     async function submit(){
+        setDbErrorMessage("")
         if(!competence[competence.length-1].exp && competence[competence.length-1].year)
             setErrorMessage("*Please specify area of expertise.")
         else if(competence[competence.length-1].exp && !competence[competence.length-1].year)
@@ -95,7 +96,7 @@ function ApplicationBox(props){
     return (
     <div>
         {message ?
-        <div style= {{color: 'green'}}>KLART</div> 
+        <div style= {{color: 'green'}}>Thank you for your Chipi-Chapa submission! Have a Chipi day!</div> 
         :
         <div>
         <div>Apply for job here!</div>

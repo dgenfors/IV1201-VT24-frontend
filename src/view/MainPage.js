@@ -70,7 +70,7 @@ function MainPage(props) {
       Bum 
       <div>
         {roleID === 2 && <button onClick={navAppli}>Apply here!</button>}
-        {roleID === 1 && <button onClick={navRecruiter}>RecruiterView</button>}
+        {roleID === 1 && <button onClick={navRecruiter}>View applications</button>}
         {roleID === null && <div></div>}
       </div>
     </div>
