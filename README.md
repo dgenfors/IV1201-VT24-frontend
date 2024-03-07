@@ -1,3 +1,4 @@
+# Description of project
 This project is written based on client-side rendering with a monolith architecture, written in JavaScript and with the [Express framwork](https://expressjs.com/). The project also follows the [MVVM architectural pattern]( https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel), 
 where MVVM stands for Model-View-Viewmodel. 
 
@@ -15,9 +16,9 @@ The views (located in the view folder) are views for the different paged on the 
 The views are split into multiple files to increase encapsulation and make navigation easier. If you wish to add a new page to the website, create a new view in the view folder, and see Javadoc in the other views and the viewmodel file (viewModel/ViewModel.js) for structural architecture and naming conventions. The project follows the camelCase naming convention in code, and PascalCase for file and folder names.
 
 
-# Getting Started with Create React App
+# How to keep developing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Please read up on create-react-app before continuing development.
 
 ## Available Scripts
 
