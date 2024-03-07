@@ -20,6 +20,11 @@ The views are split into multiple files to increase encapsulation and make navig
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Please read up on create-react-app before continuing development.
 
+## Run project locally
+If you wish to run the project locally and have access to the backend, you will need to change the IP addresses in the following files to "http://localhost:3001":
+* viewModel/ViewModel.js        (All functions that fetch and await response)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
