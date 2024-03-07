@@ -1,4 +1,4 @@
-# Description of project
+# Project Overview.
 This project is written based on client-side rendering with a monolith architecture, written in JavaScript and with the [Express framwork](https://expressjs.com/). The project also follows the [MVVM architectural pattern]( https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel), 
 where MVVM stands for Model-View-Viewmodel. 
 
