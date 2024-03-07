@@ -1,3 +1,11 @@
+This project is written based on client-side rendering with a monolith architecture, written in JavaScript and with the [Express framwork](https://expressjs.com/). The project also follows the [MVVM architectural pattern]( https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel), 
+where MVVM stands for Model-View-Viewmodel. 
+
+In this project there is a viewmodel file (viewModel/ViewModel.js) and a view folder (view) in the frontend (client-side), and a model folder (model) in the backend project (server-side). Since we opted to use client-side rendering, we have split the application into two separate projects, one for the frontend (this repository) and [backend](https://github.com/dgenfors/iv1201-vt24-backend). They handle the client-side code and server-side code independently. So the JavaScript code in the browser, which is loaded from the frontend server, calls to the backend server. Since this is a cross-origin request, where there is an request to another server than the one from which the code was loaded, the application is enabled to follow CORS policy.
+
+The viewmodel (viewModel.js) acts as the "controller" as in the MVC pattern, it recieves, sends, and creates requests to the server-side/backend. 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
