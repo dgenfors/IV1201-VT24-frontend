@@ -62,6 +62,7 @@ class ViewModel {
       const data = await response.json();
       console.log("create account:"+JSON.stringify(data))
       if(data.success){
+        console.log(user.password)
        const logInState = await this.login(user.username, user.password)
        console.log(JSON.stringify(logInState))
        return {data, logInState}
