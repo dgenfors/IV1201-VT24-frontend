@@ -63,7 +63,6 @@ class ViewModel {
       const data = await response.json();
       console.log("create account:"+JSON.stringify(data))
       if(data.success){
-        console.log(user.password)
        const logInState = await this.login(user.username, unencrypted)
        console.log(JSON.stringify(logInState))
        return {data, logInState}
@@ -82,7 +81,6 @@ class ViewModel {
   */
   async login(username, password) {
     const hashedPassword = this.hashPassword(password)
-    console.log(hashedPassword)
     try {
       const response = await fetch('https://iv1201-vt24-backend.vercel.app/unauthorized/login', {
         method: 'POST',
