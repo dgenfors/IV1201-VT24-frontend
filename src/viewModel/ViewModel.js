@@ -48,7 +48,7 @@ class ViewModel {
   * A Promise that resolves to an object indicating whether the account creation was successful and which fields already exist in the database if unsuccesful.
   */
   async createAccount(user) {
-    unencrypted = user.password
+    const unencrypted = user.password
     user.password= this.hashPassword(user.password)
     try{
       const response = await fetch('https://iv1201-vt24-backend.vercel.app/unauthorized/createAccount', {
