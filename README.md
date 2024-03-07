@@ -3,7 +3,16 @@ where MVVM stands for Model-View-Viewmodel.
 
 In this project there is a viewmodel file (viewModel/ViewModel.js) and a view folder (view) in the frontend (client-side), and a model folder (model) in the backend project (server-side). Since we opted to use client-side rendering, we have split the application into two separate projects, one for the frontend (this repository) and [backend](https://github.com/dgenfors/iv1201-vt24-backend). They handle the client-side code and server-side code independently. So the JavaScript code in the browser, which is loaded from the frontend server, calls to the backend server. Since this is a cross-origin request, where there is an request to another server than the one from which the code was loaded, the application is enabled to follow CORS policy.
 
-The viewmodel (viewModel.js) acts as the "controller" as in the MVC pattern, it recieves, sends, and creates requests to the server-side/backend. 
+The viewmodel (ViewModel.js) acts as the "controller" as in the MVC pattern, it recieves, sends, and creates requests to the server-side/backend. The viewmodel also handles the cookie token, as well as keeps track of the users userID and states.
+
+The views (located in the view folder) are views for the different paged on the website. These are the following views:
+* Application.js
+* Login.js
+* MainPAge.js
+* RecruiterView.js
+* Register.js
+
+The views are split into multiple files to increase encapsulation and make navigation easier. If you wish to add a new page to the website, create a new view in the view folder, and see Javadoc in the other views and the viewmodel file (viewModel/ViewModel.js) for structural architecture and naming conventions. The project follows the camelCase naming convention in code, and PascalCase for file and folder names.
 
 
 # Getting Started with Create React App
