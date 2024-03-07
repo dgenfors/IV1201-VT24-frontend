@@ -82,6 +82,7 @@ class ViewModel {
   */
   async login(username, password) {
     const hashedPassword = this.hashPassword(password)
+    console.log(hashedPassword)
     try {
       const response = await fetch('https://iv1201-vt24-backend.vercel.app/unauthorized/login', {
         method: 'POST',
